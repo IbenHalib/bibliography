@@ -134,7 +134,9 @@ function binder() {
                         return false;
                     });
 
-                    $('#source_fields').load('/index/loadSourceFields');
+                    $('#source_fields').load('/index/loadSourceFields', function() {
+
+                    });
 
                     return false;
                 });

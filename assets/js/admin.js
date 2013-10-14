@@ -6,7 +6,7 @@ function a_bind() {
             a_bind();
         });
         return false;
-    })
+    });
 
     $('.rm_template').off();
 
@@ -28,7 +28,7 @@ function a_bind() {
                         });
 
                     $( this ).dialog( "close" );
-            } },
+                } },
 
                 { text: "Відміна", click: function() {
                     $( this ).dialog( "close" );
@@ -36,7 +36,7 @@ function a_bind() {
             ],
 
             open: function () {
-                var t = $(this).parent()
+                var t = $(this).parent();
                 t.offset({
                     top: $(window).height() / 2 - (t.height() / 2),
                     left: ($(window).width() / 2) - (t.width() / 2)
@@ -79,7 +79,7 @@ function a_bind() {
 
                     $('#msg').fadeIn(1000, function () {
                         $('#msg').fadeOut(3000);
-                    })
+                    });
                 } else {
                     $('#msg').addClass('red');
 
@@ -88,7 +88,7 @@ function a_bind() {
 
                     $('#msg').fadeIn(1000, function () {
                         $('#msg').fadeOut(3000);
-                    })
+                    });
                 }
                 $('#container').load('/admin/templates', a_bind);
             });
@@ -108,4 +108,4 @@ function a_bind() {
 
 $(document).ready(function () {
     a_bind();
-})
+});

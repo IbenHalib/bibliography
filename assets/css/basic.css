@@ -329,3 +329,21 @@ background-color: #c5cad9;
 .noth_msg {
     text-align: center;
 }
+
+.subfields {
+    padding-left: 50px;
+    background-color: #dde1f2;
+    width: 700px;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.source_input_sub{
+    width: 450px;
+    float: left;
+}
+
+.source_fields_label_sub{
+    width:180px;
+    float: left;
+}

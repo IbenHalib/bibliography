@@ -12,13 +12,16 @@
         </label>
 
     {% else %}
-        {{ field.label }}
-        {% for key, subfield in field.subfields %}
-            <label>
-                <div class="source_fields_label">{{ subfield }}:</div>
-                <input type="text" name="{{ field.id }}[{{ key }}]" val="{{ field.type }}" class="source_input">
-            </label>
-        {% endfor %}
+        <i>{{ field.label }}:</i>
+        <div class="subfields">
+            {% for key, subfield in field.subfields %}
+                <label>
+                    <div class="source_fields_label_sub">{{ subfield }}:</div>
+                    <input type="text" name="{{ field.id }}[{{ key }}]" val="{{ field.type }}" class="source_input_sub">
+                </label>
+            {% endfor %}
+        </div>
+
     {% endif %}
 
 {% endfor %}

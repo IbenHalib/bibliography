@@ -142,7 +142,8 @@ class IndexController
             columns.column_type AS type,
 			labels.label,
 			labels.id,
-			labels.subfields
+			labels.subfields,
+			labels.multifields
             FROM information_schema.columns columns
             JOIN ' . Config::$dbname . '.column_properties labels ON labels.table_name=columns.table_name
             AND labels.column_name=columns.column_name
@@ -160,5 +161,6 @@ class IndexController
 
         echo TwigHandler::render('source_fields.html.twig', array('fields' => $fields));
     }
+
 }
 
