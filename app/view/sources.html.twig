@@ -1,0 +1,40 @@
+<div class="tb">
+
+    {% if templates|length > 0 %}
+
+<a href="/index/addSource" class="add_source">Додати джерело</a>
+
+<table class="content_table">
+    <tr class="temp_head">
+        <th class="no">№</th>
+        <th class="name">Назва шаблону</th>
+        <th class="mod">Змінений</th>
+        <th class="del">Видалити</th>
+    </tr>
+
+    {% for source in sources %}
+        <tr class="temp_table">
+            <td>№</td>
+            <td>Назва шаблону</td>
+            <td>Змінений</td>
+            <td>Видалити</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% else %}
+        <div>
+            <div class="nothing">
+                <p class="noth_msg">Ви поки що не добавляли джерел.</p>
+                <p class="noth_msg"><a href="/index/addSource" class="add_source">Додати джерело</a></p>
+            </div>
+        </div>
+    {% endif %}
+
+</div>
+
+<script>
+    $('table tbody tr').each(function (i) {
+        $(this).find('td:first').text(i);
+    });
+</script>

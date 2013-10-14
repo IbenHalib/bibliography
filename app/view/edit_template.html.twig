@@ -1,0 +1,32 @@
+<h3> {{ template.name }}</h3>
+{#<p class="date">(<i>Змінений:</i> {{ template.change_data }})</p>#}
+
+
+<form action="/admin/{{ mode }}Template?id={{ template.id }}" id="edit_template_form">
+
+    <div class="legend">
+        <i>Ім’я шаблону:</i>
+    </div>
+
+    <div class="inp">
+        <input id="db_book_name" type="text" name="book_name" value="{{ template.name }}">
+    </div>
+
+    <div class="legend">
+        <i>Схема бази даних:</i>
+    </div>
+
+    <div class="inp">
+        <textarea id="db_schema_content">{{ template.db_schema }}</textarea>
+    </div>
+
+    <div class="legend">
+        <i>Шаблон відображення:</i>
+    </div>
+
+    <div class="inp">
+        <textarea id="view_template">{{ template.view_template }}</textarea>
+    </div>
+
+    <button id="subm" style="float: left">Зберегти</button> <p id="msg"></p>
+</form>

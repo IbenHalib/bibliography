@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+
+    <meta charset="utf-8" http-equiv="Content-Type" content="text/html"/>
+    <link href="/assets/css/basic.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/assets/css/smoothness/jquery-ui-1.10.3.custom.min.css"/>
+    <script src="/assets/js/jquery-2.0.3.min.js"></script>
+    <script src="/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="/assets/js/regular.js"></script>
+    <script src="/assets/js/admin.js"></script>
+    <script src="/assets/js/jquery.blockUI.js"></script>
+
+    {% block head %}
+    {% endblock %}
+
+    <title>
+        Бібліографія
+        {% block title %}
+        {% endblock %}
+    </title>
+
+
+</head>
+<body>
+<div id="menu">
+    {% include 'menu.html.twig' %}
+</div>
+
+{% include 'login_form.html.twig' %}
+<div id="wrapper">
+    <div id="container">
+
+    </div>
+
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{% if aut %}
+
+    <div class="menu_element" id="exit_button">
+        <a href="">Вийти</a>
+    </div>
+
+    <div class="menu_element" id="search_button">
+        <a href="">Пошук</a>
+    </div>
+
+    <div class="menu_element" id="list_button">
+        <a href="">Списки</a>
+    </div>
+
+    <div class="menu_element" id="source_button">
+        <a href="">Джерела</a>
+    </div>
+
+    {% if isadmin %}
+        <div class="menu_element" id="templates_button">
+            <a href="">Шаблони</a>
+        </div>
+    {% endif %}
+
+    <div id="hello">
+        Привіт, {{ user }}
+    </div>
+
+{% else %}
+
+    <div class="menu_element" id="login_button">
+        <a href="">Вхід</a>
+    </div>
+
+    <div class="menu_element" id="register_button">
+        <a href="">Реєстрація</a>
+    </div>
+
+    <div id="hello">
+        Авторизуйтеся для можливості зберігати списки і добавляти літературу
+    </div>
+
+{% endif %}
