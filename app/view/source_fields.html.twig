@@ -1,12 +1,24 @@
 {% for field in fields %}
 
-    <label>
-        <div class="source_fields_label">{{ field.label }}:</div>
-    {% if field.type == 'text' %}
-        <textarea name="{{ field.id }}" class="source_textarea"></textarea>
+    {% if field.subfields is null %}
+        <label>
+            <div class="source_fields_label">{{ field.label }}:</div>
+            {% if field.type == 'text' %}
+                <textarea name="{{ field.id }}" class="source_textarea"></textarea>
+            {% else %}
+                <input type="text" name="{{ field.id }}" val="{{ field.type }}" class="source_input">
+            {% endif %}
+
+        </label>
+
     {% else %}
-        <input type="text" name="{{ field.id }}" val="{{ field.type }}" class="source_input">
+        {{ field.label }}
+        {% for key, subfield in field.subfields %}
+            <label>
+                <div class="source_fields_label">{{ subfield }}:</div>
+                <input type="text" name="{{ field.id }}[{{ key }}]" val="{{ field.type }}" class="source_input">
+            </label>
+        {% endfor %}
     {% endif %}
 
-    </label>
 {% endfor %}

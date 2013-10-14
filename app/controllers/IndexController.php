@@ -141,7 +141,8 @@ class IndexController
             'SELECT columns.column_name AS field,
             columns.column_type AS type,
 			labels.label,
-			labels.id
+			labels.id,
+			labels.subfields
             FROM information_schema.columns columns
             JOIN ' . Config::$dbname . '.column_properties labels ON labels.table_name=columns.table_name
             AND labels.column_name=columns.column_name
@@ -149,12 +150,12 @@ class IndexController
             ORDER by columns.ordinal_position ASC');
         $STH->execute(array($table_name));
 
-        $fields = $STH->fetchAll();
+        $fields = $STH->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($fields as $key => $field) {
             preg_match("/(\w*+)(\(\d*\))?+/", $field['type'], $type);
             $fields[$key]['type'] = $type[1];
-
+            $fields[$key]['subfields'] = json_decode($fields[$key]['subfields'], true);
         }
 
         echo TwigHandler::render('source_fields.html.twig', array('fields' => $fields));

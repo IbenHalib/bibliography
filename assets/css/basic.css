@@ -274,7 +274,8 @@ label {
 }
 
 label div{
-    float:left; width: 200px
+    float:left; width: 200px;
+    font-style: italic;
 }
 
 .source_textarea{
@@ -327,5 +328,4 @@ background-color: #c5cad9;
 
 .noth_msg {
     text-align: center;
-
 }
