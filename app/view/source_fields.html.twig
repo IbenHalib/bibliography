@@ -11,8 +11,12 @@
 
         </label>
 
+        {% if field.multifields > 1 %}
+            <button id="{{ field.id }}" class="add_multifield btn btn-primary"></button>
+        {% endif %}
+
     {% else %}
-        <i>{{ field.label }}:</i>
+        <i style="float:left">{{ field.label }}:</i>
         <div class="subfields">
             {% for key, subfield in field.subfields %}
                 <label>
@@ -20,8 +24,17 @@
                     <input type="text" name="{{ field.id }}[{{ key }}]" val="{{ field.type }}" class="source_input_sub">
                 </label>
             {% endfor %}
+
+            {% if field.multifields > 1 %}
+                <button id="{{ field.id }}" class="add_multifield btn btn-primary"></button>
+            {% endif %}
+
         </div>
 
     {% endif %}
 
 {% endfor %}
+
+<script>
+    var multifields = {{ multifields|raw }};
+</script>

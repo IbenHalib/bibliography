@@ -1,5 +1,4 @@
 <?php
-
 require 'Config.php';
 require 'functions/functions.php';
 

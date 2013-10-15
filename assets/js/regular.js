@@ -104,18 +104,36 @@ function binder() {
 
         $('#container').load('/index/sources', function () {
 
+            function bindMultifieldsActions() {
+
+                $('input, textarea').off();
+                $('input, textarea').on('focusout', function () {
+
+                    var parent_class = $(this).parent().parent().attr("class");
+
+                    if (parent_class == 'subfields') {
+
+                    }
+
+                    else {
+
+                    }
+
+                });
+            };
+
             $('.add_source').off();
             $('.add_source').on('click', function () {
-                $('#container').load('/index/addSource', function() {
+                $('#container').load('/index/addSource', function () {
 
-                    $('#source_type_select').on('change', function() {
-                        $('#source_fields').load('index/loadSourceFields?id='+
-                            $('#source_type_select option:selected').val());
+                    $('#source_type_select').on('change', function () {
+                        $('#source_fields').load('index/loadSourceFields?id=' +
+                            $('#source_type_select option:selected').val(), bindMultifieldsActions);
                         return false;
                     });
 
                     $('#add_source_form').off();
-                    $('#add_source_form').on('submit', function() {
+                    $('#add_source_form').on('submit', function () {
 
                         var data = $(this).serialize();
                         data += '&submit=yes';
@@ -134,9 +152,7 @@ function binder() {
                         return false;
                     });
 
-                    $('#source_fields').load('/index/loadSourceFields', function() {
-
-                    });
+                    $('#source_fields').load('/index/loadSourceFields', bindMultifieldsActions);
 
                     return false;
                 });

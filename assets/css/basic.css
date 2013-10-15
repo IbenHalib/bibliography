@@ -4,7 +4,7 @@ html {
     min-height: 100%;
 }
 
-body{
+body {
 
     font-family: 'Noto Sans', sans-serif;
     font-size: 14px;
@@ -91,9 +91,10 @@ body{
 }
 
 #login, #password {
-    width: 150px;
+    width: 130px;
     height: 25px;
-    margin: 5px 0
+    margin: 5px 0;
+    background-color: #FFF;
 }
 
 .label {
@@ -186,15 +187,15 @@ table, th, td {
 }
 
 /*.temp_table > td {*/
-    /*background-color: #dfe4f5;*/
+/*background-color: #dfe4f5;*/
 
 /*}*/
 
-a{
+a {
     color: #453ffb
 }
 
-a:hover{
+a:hover {
     color: #767226
 }
 
@@ -223,42 +224,44 @@ h3 {
     width: 730px;
     height: 250px;
 }
-#subm{
-    margin:10px;
+
+#subm {
+    margin: 10px;
 
 }
 
-#db_book_name{
+#db_book_name {
     width: 730px;
 }
 
-.date{
-text-align: center;
+.date {
+    text-align: center;
 }
 
-#msg{
+#msg {
     float: left;
 }
 
-.red{
+.red {
     color: #a40010;
 }
 
-.green{
+.green {
     color: #288117;
 }
 
-.content_table{
+.content_table {
     width: 100%;
 }
+
 .tb {
-    width: 90%; margin: 0 auto;
+    width: 90%;
+    margin: 0 auto;
 }
 
 tr:nth-child(even) {
     background-color: #dfe4f5;
 }
-
 
 tr:nth-child(odd) {
     background-color: #d8d8e8;
@@ -266,45 +269,46 @@ tr:nth-child(odd) {
 
 #source_type_select {
     width: 200px;
-    margin-left:0px;
+    margin-left: 0px;
 }
 
 label {
     width: 100%;
 }
 
-label div{
-    float:left; width: 200px;
+label div {
+    float: left;
+    width: 200px;
     font-style: italic;
 }
 
-.source_textarea{
+.source_textarea {
     width: 500px;
     height: 100px;
     float: left;
 }
 
-.source_input{
+.source_input {
     width: 500px;
     float: left;
 }
 
-.source_fields_label{
-    width:250px;
+.source_fields_label {
+    width: 250px;
     float: left;
 }
 
 .rm_template {
-    margin:0 auto;
+    margin: 0 auto;
     width: 25px;
     height: 25px;
-    border:0;
+    border: 0;
     background-image: url("/assets/img/del.png");
     cursor: pointer;
-    display:block;
+    display: block;
 }
 
-.rm_template:hover{
+.rm_template:hover {
     background-image: url("/assets/img/del1.png");
 }
 
@@ -312,16 +316,16 @@ label div{
     width: 80px;
 }
 
-#wrn{
+#wrn {
     color: #a40010;
     font-style: italic;
 }
 
-.nothing{
-background-color: #c5cad9;
+.nothing {
+    background-color: #c5cad9;
     border-radius: 2px;
     border: 1px solid #9c9d9e;
-    width:50%;
+    width: 50%;
     margin: 0 auto;
     padding: 10px;
 }
@@ -333,17 +337,18 @@ background-color: #c5cad9;
 .subfields {
     padding-left: 50px;
     background-color: #dde1f2;
-    width: 700px;
+    width: 650px;
     margin: 0 auto;
     border-radius: 5px;
+    float: left;
 }
 
-.source_input_sub{
+.source_input_sub {
     width: 450px;
     float: left;
 }
 
-.source_fields_label_sub{
-    width:180px;
+.source_fields_label_sub {
+    width: 150px;
     float: left;
 }

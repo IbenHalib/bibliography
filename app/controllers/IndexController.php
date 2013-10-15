@@ -2,6 +2,7 @@
 
 class IndexController
 {
+
     //Basic layout rendering
     public function contentAction()
     {
@@ -77,6 +78,7 @@ class IndexController
 
             echo TwigHandler::render('add_source.html.twig', array('types' => $source_types));
         } else {
+
             if (isset($_POST['source_type_select'])) {
                 settype($_POST['source_type_select'], 'int');
 
@@ -96,7 +98,8 @@ class IndexController
                     if ($STH->rowCount()) {
                         $res = $STH->fetch();
                         $fields[0][] = $res['column_name'];
-                        $fields[1][] = $field;
+
+                        $fields[1][] = is_array($field)?json_encode($field):$field;
                     }
                 }
 
@@ -109,7 +112,6 @@ class IndexController
                 $STH = $DBH->prepare('INSERT INTO ' . $table_name . '(' . $db_fields . ', `date`)' .
                 'VALUES (' . implode(', ', array_fill(0, count($fields[0]), '?')) . ', NOW())');
 
-                print_r($fields[1]);
                 $STH->execute($fields[1]);
 
             }
@@ -157,9 +159,13 @@ class IndexController
             preg_match("/(\w*+)(\(\d*\))?+/", $field['type'], $type);
             $fields[$key]['type'] = $type[1];
             $fields[$key]['subfields'] = json_decode($fields[$key]['subfields'], true);
+            $multifields[$fields[$key]['id']] = $fields[$key]['multifields'];
         }
 
-        echo TwigHandler::render('source_fields.html.twig', array('fields' => $fields));
+        $multifields = json_encode($multifields);
+
+        echo TwigHandler::render('source_fields.html.twig', array('fields' => $fields,
+            'multifields' => $multifields));
     }
 
 }
