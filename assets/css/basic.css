@@ -78,29 +78,20 @@ body {
     background: -o-linear-gradient(top, #d8dbe5, #656567);
 }
 
-#login, #password, .menu_element, #submit {
+.menu_element {
     float: right
-}
-
-.label {
-    float: left
 }
 
 .menu_element {
     background-color: #000
 }
 
-#login, #password {
-    width: 130px;
-    height: 25px;
-    margin: 5px 0;
-    background-color: #FFF;
-}
 
-.label {
+.my_label {
     height: 25px;
-    width: 150px;
     margin: 5px 0px;
+    background-color: #FFF;
+    float: left;
 }
 
 label {
@@ -154,10 +145,6 @@ label {
     -webkit-box-sizing: border-box;
 }
 
-#right {
-
-}
-
 .input_field_default {
     color: #9b999f;
 }
@@ -179,17 +166,12 @@ label {
 table, th, td {
     border: 1px solid #90aeb0;
     border-collapse: collapse;
-    padding: 5px;
+    padding-left: 6px;
 }
 
 .temp_head > th {
     background-color: #cbc5fb;
 }
-
-/*.temp_table > td {*/
-/*background-color: #dfe4f5;*/
-
-/*}*/
 
 a {
     color: #453ffb
@@ -209,19 +191,13 @@ h3 {
     margin-top: 10px;
 }
 
-.inp {
-    width: 730px;
-    float: left;
-    margin-top: 10px;
-}
-
 #db_schema_content {
-    width: 730px;
+    width: 650px;
     height: 300px;
 }
 
 #view_template {
-    width: 730px;
+    width: 650px;
     height: 250px;
 }
 
@@ -231,7 +207,7 @@ h3 {
 }
 
 #db_book_name {
-    width: 730px;
+    width: 650px;
 }
 
 .date {
@@ -267,13 +243,9 @@ tr:nth-child(odd) {
     background-color: #d8d8e8;
 }
 
-#source_type_select {
-    width: 200px;
-    margin-left: 0px;
-}
-
 label {
     width: 100%;
+    margin-right: 20px;
 }
 
 label div {
@@ -335,12 +307,12 @@ label div {
 }
 
 .subfields {
-    padding-left: 50px;
     background-color: #dde1f2;
-    width: 650px;
+    width: 700px;
     margin: 0 auto;
     border-radius: 5px;
     float: left;
+    padding-top: 10px;
 }
 
 .source_input_sub {

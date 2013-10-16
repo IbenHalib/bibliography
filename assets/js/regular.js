@@ -168,7 +168,7 @@ function binder() {
 }
 
 $(document).ready(function () {
-    $('#dialog').dialog({autoOpen: false, modal: true, show: "slow", width: 350, height: 200,
+    $('#dialog').dialog({autoOpen: false, modal: true, show: "slow", width: 550, height: 250,
         resizable: false, position: 'top', draggable: false,
         open: function () {
             var t = $(this).parent()

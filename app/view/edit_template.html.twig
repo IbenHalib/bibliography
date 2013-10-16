@@ -2,38 +2,41 @@
 {#<p class="date">(<i>Змінений:</i> {{ template.change_data }})</p>#}
 
 
-<form action="/admin/{{ mode }}Template?id={{ template.id }}" id="edit_template_form">
+<form action="/admin/{{ mode }}Template?id={{ template.id }}" id="edit_template_form" class="form-horizontal">
+    <div class="control-group">
+        <label for="db_book_name" class="control-label">
+            Ім’я шаблону
+        </label>
 
-    <label>
-        <div class="legend">
-            Ім’я шаблону:
+        <div class="controls">
+            <input id="db_book_name" type="text" name="book_name" value="{{ template.name }}" class="input-xxlarg">
         </div>
+    </div>
 
-        <div class="inp">
-            <input id="db_book_name" type="text" name="book_name" value="{{ template.name }}">
+    <div class="control-group">
+        <label for="db_schema_content" class="control-label">
+            Схема бази даних
+        </label>
+
+        <div class="controls">
+            <textarea id="db_schema_content" class="input-xxlarg">{{ template.db_schema }}</textarea>
         </div>
-    </label>
-
-    <label>
-    <div class="legend">
-        Схема бази даних:
     </div>
 
-    <div class="inp">
-        <textarea id="db_schema_content">{{ template.db_schema }}</textarea>
-    </div>
-    </label>
+    <div class="control-group">
+        <label class="control-label" for="view_template">
+            Шаблон відображення
+        </label>
 
-    <label>
-    <div class="legend">
-        Шаблон відображення:
+        <div class="controls">
+            <textarea id="view_template">{{ template.view_template }}</textarea>
+        </div>
     </div>
 
-    <div class="inp">
-        <textarea id="view_template">{{ template.view_template }}</textarea>
+    <div class="control-group">
+        <div class="controls">
+            <button id="subm" class="btn btn-info">Зберегти</button>
+        </div>
     </div>
-    </label>
-
-    <button id="subm" style="float: left">Зберегти</button>
     <p id="msg"></p>
 </form>

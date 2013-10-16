@@ -1,24 +1,32 @@
 <div class="tb">
-    <form action="" method="POST" id="add_source_form">
-        <label>
-            <div class="source_fields_label">
-                Тип матеріалу:
-            </div>
+    <form action="" method="POST" id="add_source_form" class="form-horizontal">
 
-            <div style="float:left">
+        <div class="control-group">
+            <label class="control-label" for="source_type_select">
+                Тип матеріалу
+            </label>
+
+            <div class="controls">
                 <select id="source_type_select" name="source_type_select">
-
                     {% for type in types %}
                         <option value="{{ type.id }}">{{ type.name }}</option>
                     {% endfor %}
                 </select>
             </div>
-
-        </label>
-
-        <div id="source_fields">
         </div>
-        <button id="submit_source" style="float: left">Додати</button>
+
+        <div id="source_fields"></div>
+
+        <div class="control-group">
+            <div class="controls">
+                <button id="submit_source" class="btn btn-info">
+                    {% block submit_button %}
+                        Додати джерело
+                    {% endblock %}
+                </button>
+            </div>
+        </div>
+
         <p id="msg"></p>
     </form>
 

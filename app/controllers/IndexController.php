@@ -35,8 +35,9 @@ class IndexController
     {
         $DBH = DBConnect::getPDO();
         $STH = $DBH->prepare('SELECT id, login FROM users WHERE login=? AND password=MD5(?)');
+        $STH->execute(array($_POST['login'], $_POST['password']));
 
-        if ($STH->execute(array($_POST['login'], $_POST['password']))) {
+        if ($STH->rowCount() > 0) {
 
             $result = $STH->fetch();
             $_SESSION['aut'] = true;

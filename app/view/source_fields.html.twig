@@ -1,32 +1,56 @@
 {% for field in fields %}
 
     {% if field.subfields is null %}
-        <label>
-            <div class="source_fields_label">{{ field.label }}:</div>
-            {% if field.type == 'text' %}
-                <textarea name="{{ field.id }}" class="source_textarea"></textarea>
-            {% else %}
-                <input type="text" name="{{ field.id }}" val="{{ field.type }}" class="source_input">
-            {% endif %}
+        <div class="control-group">
+            <label for="{{ field.id }}" class="control-label">
+                {{ field.label }}
+            </label>
 
-        </label>
+            <div class="controls">
+                {% if field.type == 'text' %}
+                    <textarea name="{{ field.id }}" class="source_textarea" id="{{ field.id }}"></textarea>
+                {% else %}
+                    <input type="text" name="{{ field.id }}" val="{{ field.type }}" class="source_input">
+                {% endif %}
+            </div>
+        </div>
 
         {% if field.multifields > 1 %}
-            <button id="{{ field.id }}" class="add_multifield btn btn-primary"></button>
+            <div class="control-group">
+                <div class="controls">
+                    <button id="{{ field.id }}" class="btn btn-success add_field">
+                        Додати ще
+                    </button>
+                </div>
+            </div>
         {% endif %}
 
     {% else %}
-        <i style="float:left">{{ field.label }}:</i>
+        <div class="control-group">
+            <i style="float:left">{{ field.label }}:</i>
+        </div>
         <div class="subfields">
             {% for key, subfield in field.subfields %}
-                <label>
-                    <div class="source_fields_label_sub">{{ subfield }}:</div>
-                    <input type="text" name="{{ field.id }}[{{ key }}]" val="{{ field.type }}" class="source_input_sub">
-                </label>
+                <div class="control-group">
+                    <label for="{{ field.id }}[{{ key }}]" class="control-label">
+                        {{ subfield }}
+                    </label>
+
+                    <div class="controls">
+                        <input type="text" name="{{ field.id }}[{{ key }}]" val="{{ field.type }}"
+                               class="source_input" id="{{ field.id }}[{{ key }}]">
+                    </div>
+                </div>
             {% endfor %}
 
             {% if field.multifields > 1 %}
-                <button id="{{ field.id }}" class="add_multifield btn btn-primary"></button>
+                <div class="control-group">
+                    <div class="controls">
+                        <button id="{{ field.id }}" class="btn btn-success add_fields">
+                            Додати ще
+                        </button>
+                    </div>
+                </div>
             {% endif %}
 
         </div>

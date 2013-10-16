@@ -1,20 +1,29 @@
 <div id="dialog">
     <form action="/index/login" id="login_form" class="form-horizontal">
-        <div class="input_row">
-            <div class="label"> <label for="login">Логін:</label></div>
-            <input type="text" id="login">
+
+        <div class="control-group">
+            <label for="login" class="control-label">Логін</label>
+            <div class="controls">
+                <input type="text" id="login">
+            </div>
         </div>
 
-        <div class="input_row">
-            <div class="label"> <label for="password">Пароль:</label></div>
-            <input type="password" id="password">
+        <div class="control-group">
+            <label for="password" class="control-label">Пароль</label>
+            <div class="controls">
+                <input type="password" id="password">
+            </div>
         </div>
 
-        <div class="submit">
-            <button id="submit">Увійти</button>
+        <div class="control-group">
+            <div class="controls">
+                <button id="submit" class="btn">Увійти</button>
+            </div>
         </div>
+
     </form>
 
     <div id="error_msg"></div>
 
 </div>
+

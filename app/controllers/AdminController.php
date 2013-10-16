@@ -39,11 +39,12 @@ class AdminController
                 $STH = $DBH->prepare('UPDATE '.Config::$db_tables['templates'].'
                  SET name=?, db_schema=?, view_template=?, change_data=? WHERE id = ?');
 
-                $res = (int)$STH->execute(array($_POST['name'],
-                        $_POST['db_schema'],
-                        $_POST['view_template'],
-                        $objDateTime->format('c'),
-                        $_GET['id'])
+                $res = (int)$STH->execute(array(
+                        trim($_POST['name']),
+                        trim($_POST['db_schema']),
+                        trim($_POST['view_template']),
+                        trim($objDateTime->format('c')),
+                        trim($_GET['id']))
                 );
 
                 if ($res) {
@@ -78,8 +79,13 @@ class AdminController
             $objDateTime = new DateTime('NOW');
 
             $DBH = DBConnect::getPDO();
-            $STH = $DBH->prepare('INSERT INTO '.Config::$db_tables['templates'].'(name, db_schema, view_template, change_data) VALUES(?, ?, ?, ?)');
-            $res = (int)$STH->execute(array($_POST['name'], $_POST['db_schema'], $_POST['view_template'], $objDateTime->format('c')));
+            $STH = $DBH->prepare('INSERT INTO '.Config::$db_tables['templates'].
+            '(name, db_schema, view_template, change_data) VALUES(?, ?, ?, ?)');
+            $res = (int)$STH->execute(array(
+                trim($_POST['name']),
+                trim($_POST['db_schema']),
+                trim($_POST['view_template']),
+                trim($objDateTime->format('c'))));
 
             if ($res) {
 
