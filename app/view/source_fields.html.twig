@@ -29,30 +29,32 @@
         <div class="control-group">
             <i style="float:left">{{ field.label }}:</i>
         </div>
-        <div class="subfields">
-            {% for key, subfield in field.subfields %}
-                <div class="control-group">
-                    <label for="{{ field.id }}[{{ key }}]" class="control-label">
-                        {{ subfield }}
-                    </label>
+        <div class="subfields" id="{{ field.id }}">
 
-                    <div class="controls">
-                        <input type="text" name="{{ field.id }}[{{ key }}]" val="{{ field.type }}"
-                               class="source_input" id="{{ field.id }}[{{ key }}]">
+            <div class="subfields_field">
+                {% for key, subfield in field.subfields %}
+                    <div class="control-group">
+                        <label for="{{ field.id }}[][{{ key }}]" class="control-label">
+                            {{ subfield }}
+                        </label>
+
+                        <div class="controls">
+                            <input type="text" name="{{ field.id }}[][{{ key }}]" val="{{ field.type }}"
+                                   class="source_input" id="{{ field.id }}[][{{ key }}]">
+                        </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
 
-            {% if field.multifields > 1 %}
-                <div class="control-group">
-                    <div class="controls">
-                        <button id="{{ field.id }}" class="btn btn-success add_fields">
-                            Додати ще
-                        </button>
+                {% if field.multifields > 1 %}
+                    <div class="control-group">
+                        <div class="controls">
+                            <button id="{{ field.id }}" class="btn btn-success add_fields">
+                                Додати ще
+                            </button>
+                        </div>
                     </div>
-                </div>
-            {% endif %}
-
+                {% endif %}
+            </div>
         </div>
 
     {% endif %}

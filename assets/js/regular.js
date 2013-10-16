@@ -106,20 +106,26 @@ function binder() {
 
             function bindMultifieldsActions() {
 
-                $('input, textarea').off();
-                $('input, textarea').on('focusout', function () {
+                $('.add_fields').off();
+                $('.add_fields').on('click', function () {
+                    var parent_div = $(this).parent().parent().parent().parent();
 
-                    var parent_class = $(this).parent().parent().attr("class");
+                    if (parent_div.attr("class") == 'subfields') {
+                        var content = $(this).parent().parent().parent().html();
 
-                    if (parent_class == 'subfields') {
+                        parent_div.find('button').remove();
+
+                        parent_div.append('<div class="subfields_field">' + content + '</div>');
+                        bindMultifieldsActions();
+
+                        if ($(parent_div).children().length >= multifields[parent_div.attr("id")])
+                            parent_div.find('button').remove();
 
                     }
 
-                    else {
-
-                    }
-
+                    return false;
                 });
+
             };
 
             $('.add_source').off();

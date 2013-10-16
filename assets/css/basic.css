@@ -324,3 +324,8 @@ label div {
     width: 150px;
     float: left;
 }
+
+.subfields_field{
+    border-bottom: 2px solid #e3e8f7;
+    padding-top: 10px;
+}
